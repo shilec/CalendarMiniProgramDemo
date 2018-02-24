@@ -1,0 +1,23 @@
+<!--pages/demo/main.wxm0l-->
+<view class="root-container">
+  <view class="title-container">
+    <text class="title-text" catchtap="onLeftClick">左</text>
+    <text class="title-title">{{nowYear}} 年 {{nowMonth}}月</text>
+    <text class="title-text" catchtap="onRightClick">右</text>
+  </view>
+  <view class="week-container">
+    <block wx:for="{{weeks}}" wx:key="{{item}}">
+      <text class="week-item">{{item}}</text>
+    </block>
+  </view>
+  <view class="gride-container">
+    <block wx:for="{{dates}}" wx:key="{{item}}">
+      <block wx:if="{{item == nowDay && nowYear == year && nowMonth == month}}">
+        <text class="gride-item.select">{{item}}</text>
+      </block>
+      <block wx:else>
+        <text class="gride-item">{{item}}</text>
+      </block>
+    </block>
+  </view>
+</view>
