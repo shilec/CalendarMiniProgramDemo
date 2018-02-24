@@ -1,9 +1,11 @@
 <!--pages/demo/main.wxm0l-->
 <view class="root-container">
   <view class="title-container">
-    <text class="title-text" catchtap="onLeftClick">左</text>
-    <text class="title-title">{{nowYear}} 年 {{nowMonth}}月</text>
-    <text class="title-text" catchtap="onRightClick">右</text>
+    <text class="title-text" catchtap="onLeftClick">上一月</text>
+    <picker class="title-title" mode="date" start="1900-1-1" end="2999-1-1" value="{{nowYear}}-{{nowMonth}}" bindchange="onDatePickerChange" fields="month">
+      <view>{{nowYear}}年 {{nowMonth}}月</view>
+    </picker>
+    <text class="title-text" catchtap="onRightClick">下一月</text>
   </view>
   <view class="week-container">
     <block wx:for="{{weeks}}" wx:key="{{item}}">

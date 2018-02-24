@@ -35,6 +35,13 @@ export function getDaysArr(year,month) {
     return arr
 }
 
+export function getDateString(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth()
+  var day = date.getDate()
+  return year + "-" + month + "-" + day
+}
+
 function getDaysCount(month) {
   switch (month) {
     case 1:

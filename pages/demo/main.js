@@ -1,5 +1,5 @@
 // pages/demo/main.js
-import { getDate, howDaysThisMonth, getDaysArr, MAX_GRIDE_ITEM} from "dateUtils.js"
+import { getDate, howDaysThisMonth, getDaysArr, MAX_GRIDE_ITEM, getDateString} from "dateUtils.js"
 Page({
 
   /**
@@ -13,7 +13,7 @@ Page({
     nowDay:new Date().getDate(),
     month: new Date().getMonth() + 1,
     day: new Date().getDate(),
-    year: new Date().getFullYear()
+    year: new Date().getFullYear(),
   },
 
   /**
@@ -101,6 +101,18 @@ Page({
             nowMonth:this.data.nowMonth + 1
         })
     }
+    console.log(this.data.nowMonth, this.data.nowYear)
+    this.updateUI()
+  },
+  onDatePickerChange:function(e) {
+    console.log(e)
+    var value = e.detail.value
+    value = value.split("-");
+    console.log(value)
+    this.setData({
+      nowYear:Number.parseInt(value[0]),
+      nowMonth: Number.parseInt(value[1])
+    })
     this.updateUI()
   }
 })
